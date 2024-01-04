@@ -1,0 +1,73 @@
+<div class="navbar">
+  <div class="navbar-brand">
+      <img src="../../assets/MicrosoftTeams-image.png" style="width: 176px;" />
+  </div>
+  <div class="navbar-links">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="logout-btn">
+    <button (click)="logout()">Logout</button>
+  </div>
+</div>
+<div>{{data}}</div>
+<div *ngFor="let skill of skills">
+  <p>Mandatory skill*</p>
+  <p>{{skill.skillName}}</p>
+</div>
+<div class="container mt-8 ">
+  <div class="row" style="margin-left: -300px; margin-right: -400px; margin-top: 100px;">
+    <div *ngFor="let i of users" class="col-lg-4 mb-4">
+      <div class="card" style="margin-bottom: 20px;">
+        <div class="card-header bg-dark text-light d-flex  align-items-left">
+          <i class="fas fa-user-circle fa-3x"></i>
+          <span class="head" id="userid"> ID:{{i.user_id}}</span>
+          <i class="bi bi-x fa-2x" id="x"></i>
+          <i class="bi bi-check fa-2x" id="check" ></i>
+        </div>
+        <div class="card-body">
+          <h4 class="card-title text-center">User Name:{{i.username}}</h4>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <strong>Email:</strong> {{i.email}}
+            </li>
+            <li class="list-group-item">
+              <strong>Gender:</strong> {{i.gender}}
+            </li>
+            <li class="list-group-item">
+              <strong>College:</strong> {{i.college_name}}
+            </li>
+            <li class="list-group-item">
+              <strong>GBL:</strong>
+              <select id="gbl">
+                <option value="" disabled selected>Select GBL</option>
+                <option *ngFor="let loc of gbl" [value]="loc">{{loc}}</option>
+              </select>
+            </li>
+            <li class="list-group-item">
+              <strong>Projects:</strong>
+              <select id="projects" [(ngModel)]="userProjects[i.user_id]" >
+                <option value="" disabled selected>Select a project:</option>  
+                <option *ngFor="let project of projects">{{project.proName}}</option>
+              </select>
+            </li>
+            <li class="list-group-item">
+              <strong>Skills:</strong>
+              <select id="skills" [(ngModel)]="skill_name" >
+                <option value="" disabled selected>Select a skill:</option>  
+                <option *ngFor="let skill of skills">{{skill.skillName}}</option>
+              </select>
+            </li>
+            <li class="list-group-item">
+              <strong>Selected Skills:</strong>
+              <ul *ngFor="let skill of userSkills[i.user_id]">
+                <li>{{skill}}</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,367 @@
+/* 
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(14, 15, 15);
+    color: rgb(22, 20, 20);
+    padding: 10px;
+  }
+  
+  .img{
+    margin:20px;
+    float: right;
+  }
+  .navbar-brand {
+    font-weight: bold;
+  }
+  
+
+  .navbar-links a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+  }
+  
+ 
+  .logout-btn button {
+    background-color: #2fd394;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .logout-btn button:hover {
+    background-color: #13a16b;
+  }
+  .card{
+    
+    margin-top:200px ;
+  }
+  .card-body{
+  
+    height: 330px;
+  }
+  .card-text{
+    margin:10px;
+    padding: 10px;
+  }
+  .card-title{
+    margin-bottom: 30px;
+  }
+#nav{
+  width: 70px;
+  position: relative;
+  height:1073px;
+  color: black;
+  
+  
+
+} 
+#header{
+margin-top:-1000px;
+margin-left: 150px;
+font-size: 35px;
+}
+#usericon{
+  margin-bottom: 50px;
+  padding: 10px;
+  color: rgb(248, 242, 242);
+}
+#usericon:hover{
+  color: #2fd394;
+} */
+/* 
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(14, 15, 15);
+    color: rgb(22, 20, 20);
+    padding: 10px;
+  }
+  
+  .img{
+    margin:20px;
+    float: right;
+  }
+  .navbar-brand {
+    font-weight: bold;
+  }
+  
+
+  .navbar-links a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+  }
+  
+ 
+  .logout-btn button {
+    background-color: #2fd394;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .logout-btn button:hover {
+    background-color: #13a16b;
+  }
+  .card{
+    margin-top: 50px;
+    border-color: black;
+    box-shadow: 0 1px 3px 1px black;
+    margin-left:200px ;
+  }
+  .card-body{
+  
+    height: 320px;
+  }
+  .card-text{
+    margin:5px;
+    padding: 10px;
+  }
+  .card-title{
+    margin-bottom: 30px;
+  }
+#nav{
+  width: 70px;
+  position: relative;
+  height:1073px;
+  color: black;
+  
+  
+
+} 
+#header{
+margin-top:-1000px;
+margin-left: 150px;
+font-size: 35px;
+}
+#usericon{
+  margin-bottom: 50px;
+  padding: 10px;
+  color: rgb(248, 242, 242);
+}
+#usericon:hover{
+  color: #2fd394;
+}
+
+#x{
+  margin-left: 300px;
+  size: 100px;
+}
+.head{
+  font-size: large;
+} */
+
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+
+.margin{
+  
+  width: 70px;
+  position: relative;
+  height:1073px;
+  color: black;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(14, 15, 15);
+    color: rgb(22, 20, 20);
+    padding: 10px;
+    height:9000px;
+    width: 2000px;
+    
+  }
+  
+  .img{
+    margin:20px;
+    float: right;
+  }
+  .navbar-brand {
+    font-weight: bold;
+  }
+  
+
+  .navbar-links a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+
+  }
+  
+ 
+  .logout-btn button {
+    background-color: #2fd394;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    
+  }
+  .logout-btn button:hover {
+    background-color: #13a16b;
+  }
+  /* .card {
+    margin-top: 20px;
+    width: 500px; 
+    max-height: 400px; 
+    overflow: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
+  } */
+  #cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+    float: left;
+}
+
+.card {
+  display: inline-block; /* Display cards in a row */
+  width: 520px; /* Set a specific width for the card */
+  max-height: 400px; /* Set a maximum height for the card */
+  margin: 10px; /* Adjust margin between cards */
+  overflow: auto; /* Add scrollbars if content overflows */
+  border-radius: 10px; /* Rounded corners for the card */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Adding a box shadow */
+  vertical-align: top; 
+}
+  
+  .card-body {
+    padding: 15px; /* Adjust padding for better content spacing */
+    height: auto; /* Allow the card body height to adjust */
+  }
+  
+  .card-title {
+    font-size: 20px; /* Adjust the title font size */
+    margin-bottom: 15px; /* Increase the margin bottom of the title */
+  }
+  
+  .list-group-item {
+    margin-bottom: 8px; /* Adjust space between list items */
+  }
+#nav{
+  width: 70px;
+  position: relative;
+  height:1073px;
+  color: black;
+ 
+  
+
+} 
+#header{
+margin-top:-2050px;
+margin-left: 150px;
+font-size: 35px;
+}
+#usericon{
+  margin-top:20px;
+  padding: 10px;
+  color: rgb(248, 244, 244);
+  align-items: center;
+  
+}
+#usericon:hover{
+  color: #2fd394;
+}
+
+#x{
+  margin-left: 600px;
+  size: 200px;
+}
+.head{
+  font-size: large;
+}
+#group{
+  margin-left: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 1px 1px black;
+}
+select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  appearance: none; /* Remove default arrow icon in some browsers */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23212121" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>'); /* Custom arrow icon */
+  background-repeat: no-repeat;
+  background-position-x: calc(100% - 12px);
+  background-position-y: center;
+  cursor: pointer;
+}
+
+/* Style for dropdown options */
+select option {
+  background-color: white;
+  color: #333;
+}
+#userid{
+  margin:10px;
+  display: flex;
+  flex: content;
+}
+.container mt-8{
+  display: flexbox;
+}
+/* Adjust table layout */
+/* Style the table header */
+#usersTable{
+  margin-left: 150px;
+  width: 1850px;
+
+}
+#usersTable th {
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ccc;
+  background-color: #43d3b4;
+  
+}
+
+/* Style table rows */
+#usersTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Style alternate rows */
+#usersTable tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Style table data cells */
+#usersTable td {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Highlight the row on hover */
+#usersTable tbody tr:hover {
+  background-color: #e2e2e2;
+  cursor: pointer;
+}
+/* Pagination styles */
+
+.divmain{
+  width:1990px;
+}
+#x{
+  margin-left: 20px;
+}
+#check{
+  margin-left: 50px;
+}

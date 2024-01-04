@@ -1,0 +1,14 @@
+<h2 class="header">Add new Project/Skills</h2>
+
+<form>
+  <label for="name"  style="color: white;">Project Name</label>
+  <input type="text" id="name" name="name" [(ngModel)]="userName">
+
+  <label for="skills" class="email" style="color: white;">Skills</label>
+  <input type="text" id="multipleValues" [(ngModel)]="inputValues" placeholder="Enter multiple values separated by commas">
+
+
+  <!-- Add more input fields or content as needed -->
+
+  <button mat-button (click)="submitForm()">Submit</button>
+</form>
