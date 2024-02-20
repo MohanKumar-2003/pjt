@@ -1,21 +1,22 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
-
-    <div>
-    
-    <img src="../../assets/MicrosoftTeams-image.png" style="width: 176px;" class="img" />
-  
-  </div>
+ 
+ 
+   
+   
+ 
+ 
  
   <div class="navbar" id="nav">
-    
+   
     <div class="navbar-brand" >
-    
-      <ul class="navbar-nav ml-auto">
+     
+   
+      <ul class="navbar-nav ml-auto" >
+       
         <li class="nav-item">
           <a class="nav-link" (click)="navigateToComponent('/manager-user')">
-            
-            <i class="fas fa-user" id="usericon" ></i> 
+           
+            <i class="fas fa-user" id="usericon" ></i>
           </a>
         </li>
        
@@ -27,9 +28,20 @@
       </ul>
     </div>
   </div>
-  <div>
-    <p id="header">Welcome Master Admin!</p>
+  <div class="margin" style="overflow: hidden; width: fit-content;">
+   
   </div>
+  <div class="divmain">
+    <p id="header">Welcome Master!</p>
+ 
+ 
+    <link rel="manager-page.component.css" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+     
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <img src="../../assets/MicrosoftTeams-image.png"  class="img" />
 <!--  
   <div *ngFor="let i of users" class="container mt-4" style="margin-bottom: 150px;" >
     <div class="row justify-content-center">
@@ -84,5 +96,8 @@
     </table>
     
     <div>
-      <a href="/skill-page" style="margin-left: 100px;">Skill page</a>
+      <a href="master/project-page" style="margin-left: 100px;">Project page</a>
+    </div>
+    <div>
+      <a href="master/skill-page" style="margin-left: 100px;">Skill page</a>
     </div>

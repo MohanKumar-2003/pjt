@@ -1,13 +1,13 @@
 <h2 class="header">Add new Project and Skills</h2>
  
-
+ 
   <label for="name"  style="color: white;margin: 30px;">Project Name</label>
-  <input type="text" id="name" [(ngModel)]="pro_name">
+  <input type="text" id="name" [(ngModel)]="prodetails">
  
   <label for="skills" class="email" style="color: white;margin-top: 20px;margin-right: 200px;margin-left: 50px;">Skills</label>
 <div class="list-group-item">
   <div *ngFor="let skill of skills">
-    <input type="checkbox"  style="margin-left: 190px;margin-top: 1px;" [checked]="selectedSkills.includes(skill)" id="skills"  (change)="NameChange(skill.id,$event)">
+    <input type="checkbox"  style="margin-left: 190px;margin-top: 1px;" [checked]="selectedSkills.includes(skill.skillName)" id="skills"  (change)="NameChange(skill.id,skill.skillName,$event)">
     <label for="skills" style="color: white;">{{ skill.skillName }}</label>
   </div>
 </div>
@@ -15,5 +15,4 @@
  
   <!-- Add more input fields or content as needed -->
  
-  <button mat-button (click)="submitForm()" style="margin-top: 20px;margin-left: 180px;">Submit</button>
-                      `
+  <button (click)="updateProject()" mat-button style="margin-top: 20px;margin-left: 180px;">Submit</button>

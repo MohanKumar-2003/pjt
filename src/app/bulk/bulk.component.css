@@ -7,11 +7,7 @@
 }
 
 body{
-  background-repeat: no-repeat;
-  background-size: 300px;
-  background-position-y: 100px;
-  background-position-x: center;
-  background-image: url('../../assets/MicrosoftTeams-image.png');
+  background: #43f5d1 !important;
   overflow: hidden;
 }
 ::selection{
@@ -113,4 +109,3 @@ form .button input:hover{
 form .signup-link a:hover{
   text-decoration: underline;
 }
-  

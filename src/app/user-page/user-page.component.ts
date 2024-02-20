@@ -4,6 +4,7 @@ import { UserdetailsService } from '../userdetails.service';
 import { Router } from '@angular/router';
 import { AdmindetailsService } from '../admindetails.service';
 import { ManagerdetailsService } from '../managerdetails.service';
+import { MasterserviceService } from '../masterservice.service';
 
 @Component({
   selector: 'app-user-page',
@@ -11,6 +12,10 @@ import { ManagerdetailsService } from '../managerdetails.service';
   styleUrls: ['./user-page.component.css']
 })
 export class UserPageComponent {
+ 
+
+
+
   id:number=0;
   users: any[] = []; // Your data goes here
  
@@ -36,21 +41,24 @@ dept:string=''
   check:boolean=true
   selectedUser:any
 constructor(private http:HttpClient,  private authService: UserdetailsService,
-  private router: Router,private userService:UserdetailsService, private adminService:AdmindetailsService,private manager:ManagerdetailsService){
+  private router: Router,private userService:UserdetailsService, private adminService:AdmindetailsService,private manager:ManagerdetailsService , private master:MasterserviceService){
     
  
   this.loaduser()
  
-}
-name:any=this.userService.getUsername()
  
+}
+
+
 data:string=''
+name:any=this.userService.getUsername()
 
 loaduser():any{
 this.userService.getempdetailsByName(this.name).subscribe((res:any)=>{
   this.id=res.user_id
   console.log(this.id)
   this.getSkills()
+  this.getEmployees()
 })
 }
 getSkills(){
@@ -77,7 +85,7 @@ logout(): void {
 
 
 getEmployees():any[]{
-  this.adminService.getUsers().subscribe((res)=>{
+  this.master.getUsers().subscribe((res)=>{
     for(let user of res){
      if(user.role_name=='USER' && user.assign_status=='No'){
        this.users.push(user)
@@ -90,4 +98,5 @@ getEmployees():any[]{
 })
 return this.users
 }
+
 }

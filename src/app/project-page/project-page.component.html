@@ -1,0 +1,86 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+ 
+ 
+   
+   
+ 
+ 
+ 
+  <div class="navbar" id="nav">
+   
+    <div class="navbar-brand" >
+     
+   
+      <ul class="navbar-nav ml-auto" >
+       
+        <li class="nav-item">
+          <a class="nav-link" (click)="navigateToComponent('/manager-user')">
+           
+            <i class="fas fa-user" id="usericon" ></i>
+          </a>
+        </li>
+       
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()">
+            <i class="bi bi-box-arrow-right" id="usericon"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="margin" style="overflow: hidden; width: fit-content;">
+   
+  </div>
+  <div class="divmain">
+    <p id="header">Add Skills</p>
+ 
+ 
+    <link rel="manager-page.component.css" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+     
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <img src="../../assets/MicrosoftTeams-image.png"  class="img" />
+    <p id="header">Add Skills</p>
+  </div>
+<div>
+  <link rel="manager-page.component.css" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+   
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+  <img src="../../assets/MicrosoftTeams-image.png"  class="img" />
+
+    <div>
+        <div id="addSkill">
+          <input type="text" [(ngModel)]="skillName" placeholder="Enter the skill name">
+          <button (click)="addSkill()">Add</button>
+        </div>
+      
+        <!-- <div *ngIf="updating">
+          <input style="margin-left: 300px;" type="text" [(ngModel)]="updateskillName" placeholder="{{ updateskillName1 }}">
+          <button (click)="update()">Update</button>
+        </div> -->
+      
+        <table id="skillsTable" class="table table-striped table-bordered" datatable [dtOptions]="dtOptions">
+          <thead>
+            <tr>
+              <th>Skill Name</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let skill of skills">
+              <td>{{ skill.skillName }}</td>
+              <td>
+                <button class="buttons" (click)="openPopup(skill.id, skill.skillName)"  class="up">Update</button>
+                <button (click)="delete(skill.id)" class="up">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+</div>

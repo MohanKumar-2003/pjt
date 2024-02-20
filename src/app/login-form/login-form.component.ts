@@ -37,6 +37,7 @@ submitForm() {
       const role=res.roles[0]
      alert("Login Success")
      localStorage.setItem('token',res.accessToken)
+     this.userdetails.setUsername(loginDetails.username)
      console.log(role)
      if(role=='ROLE_USER'){
       this.router.navigateByUrl("user-page")

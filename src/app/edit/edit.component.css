@@ -1,0 +1,46 @@
+/* popup-content.component.css */
+
+/* Style the header */
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+/* Style the form */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Style form elements */
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.header{
+  color: white;
+  margin-top: 20px;
+}
+input[type="text"],
+input[type="email"],
+button {
+  margin-bottom: 15px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 250px;
+}
+
+button {
+  background-color:#13a16b;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2fd394;
+}
+
+
+  

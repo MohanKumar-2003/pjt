@@ -1,4 +1,4 @@
-<div class="navbar">
+ <div class="navbar">
   <div class="navbar-brand">
       <img src="../../assets/MicrosoftTeams-image.png" style="width: 176px;" />
   </div>
@@ -6,18 +6,21 @@
     <a href="#">Home</a>
     <a href="#">About</a>
     <a href="#">Contact</a>
-  </div>
+    <a href="/quiz">Quiz</a>
+  </div> 
   <div class="logout-btn">
     <button (click)="logout()">Logout</button>
   </div>
-</div>
+</div> 
 <div>{{data}}</div>
 <div *ngFor="let skill of skills">
   <p>Mandatory skill*</p>
   <p>{{skill.skillName}}</p>
-</div>
-<div class="container mt-8 ">
-  <div class="row" style="margin-left: -300px; margin-right: -400px; margin-top: 100px;">
+</div> 
+
+
+<!-- <div class="container mt-8 ">
+  <div class="row" >
     <div *ngFor="let i of users" class="col-lg-4 mb-4">
       <div class="card" style="margin-bottom: 20px;">
         <div class="card-header bg-dark text-light d-flex  align-items-left">
@@ -70,4 +73,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
+
+

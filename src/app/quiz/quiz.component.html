@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-header">
+    <h1 style="text-align: center;margin-top: 10px;">Trivia Challenge</h1>
+  </div>
+  <div class="card-body">
+    <div *ngIf="!quizEnded">
+      <p>Question {{ currentQuestionIndex + 1 }}: {{ questions[currentQuestionIndex].question }}</p>
+      <form>
+        <div *ngFor="let option of questions[currentQuestionIndex].options; let i = index">
+          <input type="radio" name="answer" [value]="option" [(ngModel)]="selectedOption" (change)="selectedOption = option">{{ option }}
+        </div>
+      </form>
+      <button (click)="submitAnswer(selectedOption)" *ngIf="timer > 0; else submitDisabled">Submit</button>
+      <ng-template #submitDisabled><button [disabled]="!selectedOption" (click)="nextQuestion()" >Next</button></ng-template>
+    </div>
+    <div *ngIf="quizEnded">
+      <h2>Quiz Ended</h2>
+      <p>Your score: {{ score }}</p>
+    </div>
+    <div *ngIf="!quizEnded && timer > 0" >
+      <p>Time left: {{ timer }}</p>
+    </div>
+  
+  </div>
+</div>
+
+

@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="wrapper">
+    <div class="title"><span>Bulk Register Form</span></div>
+    <form  (ngSubmit)="submitForm()" autocomplete="off">
+      <div class="row">
+        <i class="bi bi-file-earmark-spreadsheet"></i>
+        <input type="file" style="margin-top: 0px;" id="excelFile" name="excelFile" accept=".xlsx, .xls" (change)="onFileSelected($event)">
+      </div>
+   
+      <div class="row button">
+        <input type="submit" value="Login">
+      </div>
+      <div class="signup-link">Not a member? <a href="/register">Signup now</a></div>
+    </form>
+  </div>
+</div>

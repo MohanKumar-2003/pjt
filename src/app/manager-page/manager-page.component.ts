@@ -1,4 +1,3 @@
-
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { UserdetailsService } from '../userdetails.service';
 import { Router } from '@angular/router';
@@ -10,6 +9,9 @@ import   'jquery';
 import 'datatables.net';
 import { style } from '@angular/animations';
 import { DataTableDirective } from 'angular-datatables';
+import { forkJoin } from 'rxjs';
+import { EditComponent } from '../edit/edit.component';
+import { MatDialog } from '@angular/material/dialog';
 declare const $: any;
 @Component({
   selector: 'app-manager-page',
@@ -36,20 +38,27 @@ export class ManagerPageComponent implements OnInit{
   selectedSkills:any[]=[]
   needtoTrainskill:any[]=[]
   needtoTrainskillids:any[]=[]
+  projectskills:any[]=[]
   userProjects: { [key: number]: string } = {};
 userSkills: { [key: number]: string[] } = {};
+userProjectSkills:{ [key: number]: string[] }={}
 dept:string=''
+selectedGBL: string[] = [];
+ 
   i:any[]=[]
   skill:any[]=[]
   id:number=0
   check:boolean=true
   selectedUser:any
   formgp:FormGroup
+  userSk:{ [key: number]: any[] }={}
+  userSkillids:{ [key: number]: any[] }={}
   constructor(
     private authService: UserdetailsService,
     private router: Router,
     private adminService:ManagerdetailsService,
-    private fb:FormBuilder
+    private fb:FormBuilder,
+    private dialog:MatDialog
   ) {
     this.formgp=this.fb.group({
       emp_group:'',
@@ -69,7 +78,7 @@ dept:string=''
     this.getEmployees()
     this.getProjects()
     this.getSkills()
-    
+   
    
   }
   // ngAfterViewInit(): void {
@@ -77,20 +86,26 @@ dept:string=''
   //     this.initializeDatatable();
   //   }
   // }
-  
-
-
+ 
+ 
+ 
   getEmployees():any[]{
   this.adminService.getUsers().subscribe((res)=>{
     for(let user of res){
      if(user.role_name=='USER' && user.assign_status=='No'){
        this.users.push(user)
+       
+     
        if (this.users.length > 0) {
         this.initializeDatatable();
       }
    console.log(this.users)
      }
      
+    }
+    for(let i of this.users){
+      this.userSk[i.user_id]=i.employeeskills.map((skill: { skillName: any; })=>skill.skillName)
+      console.log(this.userSk[i.user_id])
     }
    
 })
@@ -127,9 +142,7 @@ initializeDatatable(): void {
 getProjects():any[]{
   this.adminService.getProjects().subscribe((res)=>{
     for(let i of res){
-      if(i.pro_status===false){
         this.projects.push(i)
-      }
     }
   })
   console.log(this.pro_name)
@@ -137,14 +150,50 @@ getProjects():any[]{
 }
 onNameChange(user_id: number, pro_name: string): void {
   this.adminService.getProjectId(pro_name).subscribe((res) => {
+    this.check=true
+    this.userSkills[user_id]=[]
+    this.userSkillids[user_id]=[]
+    console.log(this.emp_group)
     this.userProjects[user_id] = pro_name;
     console.log(this.userProjects);
     this.proj_id=res.pro_id
+    this.projectskills[user_id]=res.projectskillsentity.map((skill: { skillName: any; })=>skill.skillName)
+    for(let i of this.projectskills[user_id]){
+      if(!this.userSk[user_id].includes(i)){
+        console.log('hello')
+        this.check=false
+        this.userSkills[user_id].push(i)
+      }
+    }
+   
+   
+   
     console.log(this.proj_id)
+    const skillIdObservables = this.userSkills[user_id].map((skill) =>
+    this.adminService.getSkillsId(skill)
+  );
+ 
+  // Use forkJoin to wait for all observables to complete
+  forkJoin(skillIdObservables).subscribe(
+    (results) => {
+      // Results is an array containing the results of all the observables
+      this.userSkillids[user_id] = results.map((res: any) => res.id);
+      console.log(this.userSkillids[user_id]);
+      console.log(this.check)
+    },
+    (error) => {
+      console.error('Error fetching skill IDs:', error);
+      // Handle the error or provide appropriate feedback to the user
+    }
+  );
+  console.log(this.userSkills[user_id])
+  console.log(this.userSkillids[user_id])
   });
+ 
 }
  
 NameChange(user_id: number, skill_name: string): void {
+  this.check=true
   this.adminService.getuserskillsbyid(user_id).subscribe((res)=>{
     for(let skill of res){
       this.selectedSkills.push(skill.skillName)
@@ -197,13 +246,12 @@ assign(user_id:number):void{
     //   }
     // }
     if(this.check){
-      const formDetails={skillIds:this.skillids}
+      const formDetails={emp_group:this.selectedGBL[0]}
       console.log(formDetails)
       if(this.formgp.valid){
         this.adminService.assigndetails(user_id,this.proj_id,formDetails).subscribe((res)=>{
           this.skillids=[]
           this.dept=''
-          this.projects=this.projects.filter(s=>s.pro_id!=this.proj_id)
           this.users=this.users.filter(s=>s.user_id!=user_id)
           this.skill_name=''
           alert(res.message)
@@ -211,15 +259,28 @@ assign(user_id:number):void{
       }
     }
     else{
-      const formDetails={skillIds:this.needtoTrainskillids}
+      const formDetails={skillIds:this.userSkillids[user_id]}
       this.adminService.trainSkills(user_id,formDetails).subscribe((res)=>{
         console.log(res)
-        this.needtoTrainskill=[]
-        this.needtoTrainskillids=[]
         alert("Employee has insufficient skills, so his/her need to acquire skills sent successfully")
       })
      
     }
+}
+openPopup(id:number) {
+ 
+  const dialogRef = this.dialog.open(EditComponent, {
+    data:{user_id:id},
+    width: '600px',
+    height:'600px' // Set the width as required
+    // You can add more configurations for the dialog here
+  });
+ 
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+ 
+    // Handle actions after the dialog is closed if needed
+  });
 }
 selectUser(user:any){
   this.selectedUser=user

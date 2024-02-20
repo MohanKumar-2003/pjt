@@ -1,15 +1,15 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
  
  
-    <div>
    
-    <img src="../../assets/MicrosoftTeams-image.png" style="width: 176px;" class="img" />
+   
  
-  </div>
+ 
  
   <div class="navbar" id="nav">
    
     <div class="navbar-brand" >
+     
    
       <ul class="navbar-nav ml-auto" >
        
@@ -28,7 +28,9 @@
       </ul>
     </div>
   </div>
-  <div class="margin"></div>
+  <div class="margin" style="overflow: hidden; width: fit-content;">
+   
+  </div>
   <div class="divmain">
     <p id="header">Welcome Manager!</p>
  
@@ -39,6 +41,7 @@
      
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <img src="../../assets/MicrosoftTeams-image.png"  class="img" />
  
     <table id="usersTable" class="table table-striped table-bordered" datatable [dtOptions]="dtOptions">
       <thead>
@@ -58,7 +61,7 @@
       </thead>
       <tbody>
         <!-- Loop through users array -->
-        <tr *ngFor="let i of users">
+        <tr *ngFor="let i of users;let rowIndex = index">
           <td>{{ i.user_id }}</td>
           <td>{{ i.username }}</td>
           <td>{{ i.email }}</td>
@@ -66,8 +69,8 @@
           <td>{{ i.college_name }}</td>
        
           <td>
-            <select id="gbl">
-              <option  value="" disabled selected>GBL</option>
+            <select id="gbl_{{ i.user_id }}" [(ngModel)]="selectedGBL[rowIndex]">
+              <option value="" disabled selected>GBL</option>
               <option *ngFor="let loc of gbl" [value]="loc">{{ loc }}</option>
             </select>
           </td>
@@ -80,11 +83,11 @@
           </td>
              
           <td>
-            
+            <li *ngFor="let skill of projectskills[i.user_id]">{{skill}}</li>
           </td>
           <td>
            
-              <li *ngFor="let skill of userSkills[i.user_id]">{{ skill }}</li>
+            <li  *ngFor="let skill of i.employeeskills">{{ skill.skillName }} <i class="bi bi-pencil-square" id="edit" (click)="openPopup(i.user_id)" ></i></li>
            
           </td>
           <td>

@@ -22,10 +22,12 @@ export class UserdetailsService {
 
   loginuserData(data:any):Observable<any>{
     return this.http.post("http://www.localhost:8080/api/auth/login",data)
+    
   }
   loggedout(): void {
     
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
   }
   getSkills():Observable<any[]>{
     return this.http.get<any[]>(`http://www.localhost:8080/api/auth/getskills`)

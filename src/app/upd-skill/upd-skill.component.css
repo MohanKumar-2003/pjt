@@ -1,0 +1,43 @@
+#addSkill button{
+    margin-left: 30px;
+    border-radius: 10px;
+    color: white;
+    background-color: black;
+    border: 2px;
+    box-shadow: 0 0 2px 2px black;
+  }
+  #addSkill input{
+    margin-right: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 2px 2px black;
+    border: 2px;
+    width: 60%;
+  }
+  .button{
+    margin-top: 90px;
+    margin-left: 220px;
+  }
+  .header{
+    margin-top: 20px;
+    margin-left: 245px;
+    color: white;
+  }
+  button {
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 250px;
+    margin-left: 180px;
+    margin-top: 50px;
+}
+  
+  button {
+    background-color:#13a16b;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #2fd394;
+  }

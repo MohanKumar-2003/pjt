@@ -10,8 +10,10 @@
   }
   
   .img{
-    margin:20px;
-    float: right;
+    margin-top: -200px;
+    margin-left: 1800px;
+    width: 200px;
+   
   }
   .navbar-brand {
     font-weight: bold;

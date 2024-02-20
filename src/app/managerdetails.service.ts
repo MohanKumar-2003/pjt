@@ -46,4 +46,10 @@ assigndetails(user_id:number,pro_id:number,skillids:any):Observable<any>{
 trainSkills(user_id:number,skillids:any):Observable<any>{
   return this.http.put(`http://www.localhost:8080/api/manager/updatetrainskills?id=${user_id}`,skillids)
 }
+getProjectid(id:number):Observable<any>{
+  return this.http.get<any>(`http://www.localhost:8080/api/manager/getProdetbyid?pro_id=${id}`)
+}
+updateemployeeSkills(user_id:number,skillids:any):Observable<any>{
+  return this.http.put(`http://www.localhost:8080/api/manager/updateempskills?user_id=${user_id}`,skillids)
+}
 }

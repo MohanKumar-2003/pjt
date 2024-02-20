@@ -31,4 +31,27 @@
   .logout-btn button:hover {
     background-color: #13a16b;
   }
- 
+  .card {
+    display: inline-block; /* Display cards in a row */
+    width: 520px; /* Set a specific width for the card */
+    max-height: 400px; /* Set a maximum height for the card */
+    margin: 10px; /* Adjust margin between cards */
+    overflow: auto; /* Add scrollbars if content overflows */
+    border-radius: 10px; /* Rounded corners for the card */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Adding a box shadow */
+    vertical-align: top;
+  }
+   
+    .card-body {
+      padding: 15px; /* Adjust padding for better content spacing */
+      height: auto; /* Allow the card body height to adjust */
+    }
+   
+    .card-title {
+      font-size: 20px; /* Adjust the title font size */
+      margin-bottom: 15px; /* Increase the margin bottom of the title */
+    }
+   
+    .list-group-item {
+      margin-bottom: 8px; /* Adjust space between list items */
+    }

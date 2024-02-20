@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
+ 
 @Injectable({
   providedIn: 'root'
 })
 export class MasterserviceService {
-
+ 
   constructor(private http:HttpClient) { }
   private url="http://www.localhost:8080/api/master"
   approve(user_id: number): Observable<any> {
@@ -32,5 +32,20 @@ export class MasterserviceService {
   }
   getProjects():Observable<any[]>{
     return this.http.get<any[]>(`http://www.localhost:8080/api/master/getprojects`)
+  }
+  getSkillsId(username:string):Observable<any>{
+    return this.http.get<any>(`http://www.localhost:8080/api/master/getskillsid?skillName=${username}`)
+  }
+  savePro(pro:any):Observable<any>{
+    return this.http.post(`http://www.localhost:8080/api/master/saveProject`,pro)
+  }
+  deleteProject(id:number):Observable<any>{
+    return this.http.delete(`http://www.localhost:8080/api/master/deleteProject?id=${id}`)
+  }
+  getProjectid(id:number):Observable<any>{
+    return this.http.get<any>(`http://www.localhost:8080/api/master/getProdetbyid?pro_id=${id}`)
+  }
+  updateProject(id:number,pro:any):Observable<any>{
+    return this.http.put(`http://www.localhost:8080/api/master/updateProject?id=${id}`,pro)
   }
 }

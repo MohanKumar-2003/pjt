@@ -5,11 +5,19 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins',sans-serif;
+
+  
 }
- 
+
+
 body{
-  background: #43f5d1 !important;
-  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: 300px;
+  margin-left: 300px;
+  margin-top: -30px;
+  background-image: url('../../assets/MicrosoftTeams-image.png');
+ 
+
 }
 ::selection{
   background: rgba(38, 235, 195, 0.3);
