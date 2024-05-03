@@ -1,25 +1,30 @@
-project_name: WLCompetency
-version: 1.0
-author: Vijay
-push: on 
+name: Build and Push Docker Image
 
-docker_credentials:
-  username: avanthika09
-  password: Demo@1234
- 
-dockerfile_content: |
-  # Dockerfile for WLCompetency Angular project
-  FROM node:14 as build
-  
-  WORKDIR /app
-  
-  COPY . .
-  
-  RUN npm install
-  RUN npm run build --prod
-  
-  FROM nginx:alpine
-  
-  COPY --from=build /app/dist/WLCompetency /usr/share/nginx/html
-  
-  EXPOSE 80
+on:
+  push:
+    branches:
+      - main
+
+env:
+  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Build Docker Image
+        run: |
+          docker build -t ${{ env.DOCKER_USERNAME }}/WLCompetency:${{ github.sha }} .
+      
+      - name: Log in to Docker Hub
+        run: docker login -u ${{ env.DOCKER_USERNAME }} -p ${{ env.DOCKER_PASSWORD }}
+
+      - name: Push Docker Image
+        run: |
+          docker push ${{ env.DOCKER_USERNAME }}/WLCompetency:${{ github.sha }}
+
