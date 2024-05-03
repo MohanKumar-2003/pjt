@@ -1,7 +1,7 @@
 project_name: WLCompetency
 version: 1.0
 author: Vijay
-push: on
+push: on 
 
 docker_credentials:
   username: avanthika09
