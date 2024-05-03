@@ -19,12 +19,13 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t ${{ env.DOCKER_USERNAME }}/wlcompetency:${{ github.sha }} .
+          docker build -t ${{ env.DOCKER_USERNAME }}/wlcompetency:${{ github.sha }} -f path/to/Dockerfile .
       
       - name: Log in to Docker Hub
         run: docker login -u ${{ env.DOCKER_USERNAME }} -p ${{ env.DOCKER_PASSWORD }}
 
       - name: Push Docker Image
         run: |
-          docker push ${{ env.DOCKER_USERNAME }}/WLCompetency:${{ github.sha }}
+          docker push ${{ env.DOCKER_USERNAME }}/wlcompetency:${{ github.sha }}
+
 
