@@ -1,7 +1,5 @@
 provider "aws" {
   region = "eu-north-1"
-  access_key = "secrets.newa"
-  secret_key = "secrets.news"
 }
 
 resource "aws_instance" "example" {
