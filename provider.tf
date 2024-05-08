@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-1"
+  region = "eu-north-1"
   access_key = "secrets.newa"
   secret_key = "secrets.news"
 }
