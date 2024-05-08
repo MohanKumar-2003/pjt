@@ -21,8 +21,8 @@ jobs:
 
       - name: Install Docker
         run: |
-          sudo apt-get update && \
-          sudo apt-get install -y docker.io
+          sudo apt-get update
+          sudo apt-get install -y docker-ce=5:20.10.12~3-0~ubuntu-focal docker-ce-cli=5:20.10.12~3-0~ubuntu-focal containerd.io
 
       - name: Build Docker Image
         run: |
@@ -48,6 +48,7 @@ jobs:
 
       - name: Check Running Containers
         run: docker ps
+
 
 
 
